@@ -1,0 +1,24 @@
+{
+  "name": "moveable",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "binyang",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/pixi.js": "^4.8.6",
+    "can-autoplay": "^3.0.0",
+    "d3-scale": "^3.0.0",
+    "pixi-viewport": "^3.21.2",
+    "pixi.js": "^4.8.7",
+    "three": "^0.103.0"
+  },
+  "scripts": {
+    "test:serve": "umi dev",
+    "test:build": "umi build"
+  },
+  "devDependencies": {
+    "umi": "^2.6.10",
+    "umi-plugin-react": "^1.7.2"
+  }
+}
