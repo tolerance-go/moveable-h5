@@ -57,7 +57,7 @@ export default class Test extends React.Component {
       leave: Infinity,
       attrs: [
         {
-          size: { width: 50, height: 50 },
+          size: { width: 50, height: 100 },
           position: { x: 300, y: 200 },
           imgUrl: `${PUBLIC_PATH}image/cat.png`,
           skew: { x: 0, y: 0 },
@@ -65,7 +65,7 @@ export default class Test extends React.Component {
           alpha: 1,
         },
         {
-          size: { width: 150, height: 150 },
+          size: { width: 150, height: 300 },
           position: { x: 400, y: 600 },
           imgUrl: `${PUBLIC_PATH}image/cat.png`,
           skew: { x: 0, y: 0 },
