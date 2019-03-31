@@ -146,6 +146,13 @@ export default class Test extends React.Component {
   };
 
   render() {
-    return null;
+    return (
+      <a
+        style={{ position: 'absolute', top: 15, left: 20, zIndex: 100 }}
+        href="https://github.com/tolerance-go/moveable-h5"
+      >
+        github
+      </a>
+    );
   }
 }
