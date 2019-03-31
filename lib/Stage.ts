@@ -17,6 +17,8 @@ export interface StageOptions {
 }
 
 class Stage {
+  openAudioElement: HTMLButtonElement;
+
   loader: Loader = new Loader();
 
   nodes: Element[] = [];
@@ -152,8 +154,9 @@ class Stage {
   mount(container: HTMLElement) {
     this.loadAssets();
 
+    this.showUserPlayAudioButton();
     this.loadAudio()
-      .then(() => this.showUserPlayAudioButton())
+      .then(() => this.activeUserPlayAudioButton())
       .catch(error => console.error(error));
 
     container.appendChild(this.app.view);
@@ -299,13 +302,21 @@ class Stage {
   }
 
   showUserPlayAudioButton() {
-    const openAudioElement = document.createElement('button');
-    openAudioElement.style.position = 'fixed';
-    openAudioElement.style.top = 15 + 'px';
-    openAudioElement.style.right = 15 + 'px';
-    openAudioElement.textContent = 'give audio';
+    this.openAudioElement = document.createElement('button');
+    this.openAudioElement.style.position = 'fixed';
+    this.openAudioElement.style.zIndex = '100';
+    this.openAudioElement.style.top = 15 + 'px';
+    this.openAudioElement.style.right = 15 + 'px';
+    this.openAudioElement.textContent = 'audio loading...';
+    this.openAudioElement.disabled = true;
 
-    openAudioElement.onclick = async () => {
+    document.body.appendChild(this.openAudioElement);
+  }
+
+  activeUserPlayAudioButton() {
+    this.openAudioElement.textContent = 'play audio';
+    this.openAudioElement.disabled = false;
+    this.openAudioElement.onclick = async () => {
       await Promise.all(
         this.arrayBuffers.map((audioBuffer, index) =>
           this.audioElements[index].initialAudioContext(audioBuffer).then(result => {
@@ -317,11 +328,10 @@ class Stage {
         )
       );
 
-      openAudioElement.onclick = null;
-      document.body.removeChild(openAudioElement);
+      document.body.removeChild(this.openAudioElement);
+      this.openAudioElement.onclick = null;
+      this.openAudioElement = null;
     };
-
-    document.body.appendChild(openAudioElement);
   }
 
   launchDebug() {
