@@ -2,7 +2,7 @@
 
 <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg"></a>
 
-受网易环保宣传 H5（[她在挣扎48小时后死去，无人知晓](https://c.m.163.com/nc/qa/activity/dada_protection/index.html?spssid=d5e997b4dba188b54fe6143b32fd12a2&spsw=25&spss=other)） 启发，该项目允许在网页及移动端运行一种 `根据浏览器滚动位置变化而变化页面`，使用 canvas。
+受网易环保宣传 H5（[她在挣扎48小时后死去，无人知晓](https://c.m.163.com/nc/qa/activity/dada_protection/index.html?spssid=d5e997b4dba188b54fe6143b32fd12a2&spsw=25&spss=other)） 启发，该项目允许在网页及移动端运行一种 `根据浏览器滚动位置变化而变化页面`，底层使用 canvas 实现
 
 # 思路
 
